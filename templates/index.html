@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplicación de Matrices</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Multiplicación de Matrices</h2>
+
+    <h3>Dimensiones de Matriz 1</h3>
+    <label for="filas1">Filas:</label>
+    <input type="number" id="filas1" min="1">
+    <label for="columnas1">Columnas:</label>
+    <input type="number" id="columnas1" min="1">
+
+    <h3>Dimensiones de Matriz 2</h3>
+    <label for="filas2">Filas:</label>
+    <input type="number" id="filas2" min="1">
+    <label for="columnas2">Columnas:</label>
+    <input type="number" id="columnas2" min="1">
+
+    <button onclick="generarInputs()">Generar Matrices</button>
+
+    <div id="matrices"></div>
+    
+    <button id="calcular" onclick="multiplicarMatrices()" style="display:none;">Calcular</button>
+
+    <h3>Resultado:</h3>
+    <div id="resultado"></div>
+
+    <script src="/static/script.js"></script>
+
+</body>
+</html>
