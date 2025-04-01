@@ -25,7 +25,7 @@ function generarInputs() {
             for (let j = 0; j < columnas; j++) {
                 let input = document.createElement("input");
                 input.type = "number";
-                input.id = `${nombre.toLowerCase()}-${i}-${j}`;
+                input.id = `matriz${matrizIndex}-${i}-${j}`;
                 input.className = `matriz${matrizIndex}-input`; // Se agrega una clase para facilitar la selección
                 row.appendChild(input);
             }
@@ -50,36 +50,38 @@ function multiplicarMatrices() {
     let matriz2 = [];
 
     // Obtener los valores de la matriz 1
-    for (let i = 0; i < filas1; i++) {
-        let row = [];
-        for (let j = 0; j < columnas1; j++) {
-            let input = document.getElementById(`matriz1-${i}-${j}`);
-            if (input && input.value !== '') { // Verificamos si el input existe y tiene valor
-                let value = parseFloat(input.value);
-                row.push(value);
-            } else {
-                row.push(0); // Si el input está vacío, asignamos 0
-            }
+for (let i = 0; i < filas1; i++) {
+    let row = [];
+    for (let j = 0; j < columnas1; j++) {
+        let input = document.getElementById(`matriz1-${i}-${j}`);
+        console.log(`matriz1-${i}-${j}:`, input ? input.value : "Input no encontrado"); // Depuración
+        if (input && input.value !== '') { // Verificamos si el input existe y tiene valor
+            let value = parseFloat(input.value);
+            row.push(value);
+        } else {
+            row.push(0); // Si el input está vacío, asignamos 0
         }
-        matriz1.push(row);
     }
+    matriz1.push(row);
+}
 
-    // Obtener los valores de la matriz 2
-    for (let i = 0; i < filas2; i++) {
-        let row = [];
-        for (let j = 0; j < columnas2; j++) {
-            let input = document.getElementById(`matriz2-${i}-${j}`);
-            if (input && input.value !== '') { // Verificamos si el input existe y tiene valor
-                let value = parseFloat(input.value);
-                row.push(value);
-            } else {
-                row.push(0); // Si el input está vacío, asignamos 0
-            }
+// Obtener los valores de la matriz 2
+for (let i = 0; i < filas2; i++) {
+    let row = [];
+    for (let j = 0; j < columnas2; j++) {
+        let input = document.getElementById(`matriz2-${i}-${j}`);
+        console.log(`matriz2-${i}-${j}:`, input ? input.value : "Input no encontrado"); // Depuración
+        if (input && input.value !== '') { // Verificamos si el input existe y tiene valor
+            let value = parseFloat(input.value);
+            row.push(value);
+        } else {
+            row.push(0); // Si el input está vacío, asignamos 0
         }
-        matriz2.push(row);
     }
+    matriz2.push(row);
+}
 
-    // Verificar que las matrices tengan los valores correctos
+    // Verificar si las matrices se están llenando correctamente
     console.log("Matriz 1: ", matriz1);
     console.log("Matriz 2: ", matriz2);
 
